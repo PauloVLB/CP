@@ -5,7 +5,7 @@
 using namespace std;
 
 int n;
-set<map<char, int>> cj;
+set<string> cj;
 string mdna;
 int main() {_
     
@@ -14,11 +14,8 @@ int main() {_
 
         for(int i = 0; i < n; i++) {
             cin >> mdna;
-            map<char, int> la;
-            for(int j = 0; j < mdna.size(); j++) {
-                la[mdna[j]]++;
-            }
-            cj.insert(la);
+            sort(mdna.begin(), mdna.end());
+            cj.insert(mdna);
         }
         
         cout << cj.size() << endl;
