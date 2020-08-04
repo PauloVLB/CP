@@ -5,17 +5,17 @@
 
 using namespace std;
 
-int n, q, a[MAXN][MAXN], psa[MAXN][MAXN], ia, ja, ib, jb, ans;
-string l;
+int n, q, a, psa[MAXN][MAXN], ia, ja, ib, jb, ans;
+char c;
 
 int main() {_
     cin >> n >> q;
 
     for(int i = 1; i <= n; i++) {
-        cin >> l;
         for(int j = 1; j <= n; j++) {
-            a[i][j] += l[j-1] == '*';
-            psa[i][j] = a[i][j] + psa[i-1][j] + psa[i][j-1] - psa[i-1][j-1];
+            cin >> c;
+            a = c == '*';
+            psa[i][j] = a + psa[i-1][j] + psa[i][j-1] - psa[i-1][j-1];
         }
     }
 
