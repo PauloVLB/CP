@@ -14,17 +14,14 @@ int main(){_
         cin >> xi >> xf >> yi >> yf;
         for(int j = xi; j < xf; j++) {
             for(int k = yi; k < yf; k++) {
-                psa[j][k]++;
+                if(!psa[j][k]) {
+                    psa[j][k] = 1;
+                    ans++;
+                }
             }
         }
     }
-
-    for(int i = 1; i < MAX; i++) {
-        for(int j = 1; j < MAX; j++) {
-            if(psa[i][j]) ans++;
-        }
-    }
-
+    
     cout << ans << endl;
     return 0;
 }
