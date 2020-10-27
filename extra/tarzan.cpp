@@ -1,18 +1,19 @@
 #include <bits/stdc++.h>
 
 #define _ ios_base::sync_with_stdio(0); cin.tie(); cout.tie();
-#define ii pair<int,int>
+#define ii pair<int, int>
 #define fs first
 #define sc second
 #define vi vector<int>
-#define vvi vector<vi>
 #define vii vector<ii>
+#define vvi vector<vi>
+
 using namespace std;
 
-int n, d, distX, distY, alc;
-vi vis;
+int n, d, x, y, distX, distY, alc;
 vvi adj;
-int x[1005], y[1005];
+vii coord;
+vi vis;
 
 void bfs(int s) {
     queue<int> fila;
@@ -30,28 +31,32 @@ void bfs(int s) {
                 vis[v] = 1;
             }
         }
+
     }
 }
 
-int main(){_ 
+int main() {_ 
     cin >> n >> d;
-    vis = vi(n+1, 0);
-    adj = vvi(n+1);
-    for(int i = 1; i <= n; i++) {
-        cin >> x[i] >> y[i]; 
+    adj = vvi(n);
+    vis = vi(n);
+    for(int i = 0; i < n; i++) {
+        cin >> x >> y;
+        coord.push_back({x, y});      
     }
-    for(int i = 1; i <= n; i++) {
-        for(int j = i+1; j <= n; j++) {
-            distX = x[i] - x[j];
-            distY = y[i] - y[j];
+
+    for(int u = 0; u < n; u++) {
+        for(int v = u+1; v < n; v++) {
+            distX = coord[u].fs - coord[v].fs;
+            distY = coord[u].sc - coord[v].sc;
+
             if(distX*distX + distY*distY <= d*d) {
-                adj[i].push_back(j);
-                adj[j].push_back(i);
+                adj[u].push_back(v);
+                adj[v].push_back(u);
             }
         }
     }
 
-    bfs(1);
+    bfs(0);
 
-    cout << (alc == n ? 'S' : 'N') << endl;
+    cout << (alc == n ? 'S' : 'N') << endl;   
 }
