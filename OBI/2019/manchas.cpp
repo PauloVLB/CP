@@ -12,50 +12,39 @@
 using namespace std;
 
 int n, m, x, c;
-int dk[4] = {0, -1, 0, 1};
+int d[] = {-1, 0, 1, 0};
 int p[MAX][MAX];
-vii pin;
 
-void bfs(int x, int y) {
-    queue<ii> q;
-    q.push({x, y});
+void dfs(int i, int j) {
+    p[i][j] = 0;
 
-    while(!q.empty()) {
-        x = q.front().fs;
-        y = q.front().sc;
-        q.pop();
+    for(int k = 0; k < 4; k++) {
+        int a = i + d[k];
+        int b = j + d[3-k];
 
-        if(!p[x][y]) continue;
-
-        p[x][y] = 0;
-
-        for(int k = 0; k < 4; k++) {
-            int e = x+dk[k]; int d = y+dk[3-k];
-            if(p[e][d] != -1) q.push({e, d});
+        if(p[a][b]) {
+            dfs(a, b);
         }
     }
-
 }
 
 
 int main() {_ 
     cin >> n >> m;
 
-    for(int i = 0; i <= n+1; i++) {
-        for(int j = 0; j <= m+1; j++) {
-            if(i == 0 || j == 0 || i == n+1 || j == m+1) p[i][j] = -1;
-            else {
-                cin >> p[i][j];
-                if(p[i][j]) pin.emplace_back(i, j);
-            }
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= m; j++) {
+            cin >> p[i][j];
         }
     }
 
-    for(auto [i, j] : pin) {
-        if(p[i][j]) {
-            c++;
-            bfs(i, j);
-        } 
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= m; j++) {
+            if(p[i][j]) {
+                dfs(i, j);
+                c++;
+            }
+        }
     }
 
     cout << c << endl;
