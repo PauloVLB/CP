@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 
 #define _ ios_base::sync_with_stdio(0); cin.tie(); cout.tie();
+#define ii pair<int, int>
+#define fs first
+#define sc second
+#define debug(args...) printf(args)
 
 using namespace std;
 
@@ -8,7 +12,8 @@ using namespace std;
 string l, a;
 int x;
 vector<int> v;
-stack<int> p;
+stack<ii> p;
+
 int main() {_
     while(getline(cin, l)) {
         stringstream ss;
@@ -20,18 +25,15 @@ int main() {_
         int s = 0;
         for(int b : v) {
             if(b < 0) {
-                if(!p.empty() && p.top() > b) {
+                p.push({b, 0});
+            } else {
+                if(!p.empty() && p.top().fs == -b && p.top().sc > p.top().fs) {
+                    int x = p.top().fs; p.pop();
+                    if(!p.empty()) p.top().sc += x;
+                } else {
                     flag = false;
                     break;
                 }
-                p.push(b);
-            } else if(!p.empty()){
-                if(p.top() == b*-1) {
-                    p.pop();
-                }
-            } else {
-                flag = false;
-                break;
             }
         }
         
