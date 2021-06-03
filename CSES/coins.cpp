@@ -20,7 +20,6 @@ int f(int x) {
     for(int i = 1; i <= n; i++) {
         int a = f(x - c[i]) + 1;
         if(a != 0) {
-            memo[x] = a;
             ans = min(ans, a);
         }
     }
