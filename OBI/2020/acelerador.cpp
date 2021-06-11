@@ -1,13 +1,13 @@
-// OBI - 2020 - Fase 1 - Nível Sênior - Acelarador de Partículas
+#include <bits/stdc++.h>
 
-#include <iostream>
+#define _ ios_base::sync_with_stdio(0); cin.tie(); cout.tie();
 
 using namespace std;
 
 int d;
 
-int main() {
+int main() {_
     cin >> d;
+    
     cout << ((d-5)%8) << endl; 
-    return 0;
 }
