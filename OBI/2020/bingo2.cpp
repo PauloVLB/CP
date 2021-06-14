@@ -2,6 +2,7 @@
 
 #define _ ios_base::sync_with_stdio(0); cin.tie(); cout.tie();
 #define MAX 1005
+#define MAXU 10005
 #define vi vector<int>
 #define vvi vector<vi>
 #define pb push_back
@@ -9,7 +10,7 @@
 using namespace std;
 
 int n, k, u, ci, ui;
-int c[MAX][MAX];
+int c[MAX][MAXU];
 int m[MAX];
 vi v;
 int w;
