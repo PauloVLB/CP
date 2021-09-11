@@ -1,9 +1,10 @@
 #include <bits/stdc++.h>
 
 #define _ ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define endl '\n'
 
 using namespace std;
-string al = "abcdefghijklmnopqrstuvwxyz";
+string alpha = "abcdefghijklmnopqrstuvwxyz";
 int t; 
 string s;
 
@@ -16,7 +17,7 @@ int main() {_
         int t = s.size();
         string ns = "a";
         int tn = 0;
-        for(char c : al) {
+        for(char c : alpha) {
             if(tn == t-1) break;
             int p = s.find(c);
             char next = c+1;
