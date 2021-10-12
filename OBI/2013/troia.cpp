@@ -11,20 +11,14 @@ int u, v, ans;
 vvi adj;
 vi vis;
 
-void bfs(int s){
-    queue<int> fila;
-    fila.push(s); vis[s] = 1;
+void dfs(int s) {
+    vis[s] = 1;
 
-    while(!fila.empty()) {
-        int u = fila.front(); fila.pop();
-
-        for(int v : adj[u]) {
-            if(!vis[v]) {
-                fila.push(v);
-                vis[v] = 1;
-            }
+    for(int v : adj[s]) {
+        if(!vis[v]) {
+            dfs(v);
         }
-    }
+    }    
 }
 
 int main() {_
@@ -40,7 +34,7 @@ int main() {_
 
     for(int i = 1; i <= n; i++) {
         if(!vis[i]) {
-            bfs(i);
+            dfs(i);
             ans++;
         }
     }
