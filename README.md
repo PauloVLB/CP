@@ -53,6 +53,7 @@ Pronto! Teste usando `g++ -v` no seu prompt de comando, deve mostrar uma mensage
 <img src="https://user-images.githubusercontent.com/31678236/95664031-8d250180-0b1a-11eb-982f-abda2baba48a.png" width="750px"/>
 
 ## Como desinstalar
+
 Basta apagar o diretório de instalação. Por padrão está em: `C:\MinGW`
 
 **Dica: Use Ubuntu :)**
