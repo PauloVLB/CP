@@ -16,25 +16,15 @@ int32_t main() {_
 
     while(t--) {
         int x, n; cin >> x >> n;
-
-        bool xpar = x%2 == 0;
-        bool npar = n%2 == 0;
-
-        int ans = 0;
-        int numPares = 0;
-        int numImpares = 0;
-        int soma = (n*(n+1))/2;
-
-        if(xpar && npar) { 
-            cout << x + 1 << endl;
-        } else if(xpar && !npar) { 
-            int tira = ((n+1)*(n+2))/2;
-            cout << (x + (soma) - (tira)) + 1 << endl;
-        } else if(!xpar && npar) {
+        
+        if(n%4 == 0) {
             cout << x << endl;
+        } else if(n%4 == 1) {
+            cout << (x%2 == 0 ? x - n : x + n) << endl;
+        } else if(n%4 == 2) {
+            cout << (x%2 == 0 ? x + 1 : x - 1) << endl;
         } else {
-            cout << x + n << endl;
-        }   
-
+            cout << (x%2 == 0 ? x + n + 1 : x - n - 1) << endl;
+        }
     }
 }
