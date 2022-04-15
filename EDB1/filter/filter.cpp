@@ -1,11 +1,11 @@
 #include <iostream>
 
-int* filter(int * first, int * last) {
-    int * current = first;
+int* filter(int* first, int* last) {
+    int* current = first;
 
-    while(first < last && current < last) {
+    while(current < last) {
         if(*current > 0) {
-            std::swap(*current, *first);
+            *first = *current;
             first++;
         }
         current++;
